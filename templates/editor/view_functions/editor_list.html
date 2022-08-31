@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="mb-3 mt-4">
+      <h3>Lista de editores</h3>
+    </div>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <td>No. Editor</td>
+            <td>Nombre</td>
+            <td>Domicilio</td>
+            <td>Ciudad</td>
+            <td>Estado</td>
+            <td>Pais</td>
+            <td>Website</td>
+            <td>Acciones</td>
+        </tr>
+    <thead>
+    <tbody>
+
+        {% if editores %}
+
+        {% for editor in editores%}
+        <tr>
+    
+            <td>{{editor.id}}</td>
+            <td>{{editor.nombre}}</td>
+            <td>{{editor.domicilio}}</td>
+            <td>{{editor.ciudad}}</td>
+            <td>{{editor.estado}}</td>
+            <td>{{editor.pais}}</td>
+            <td>{{editor.website}}</td>
+            <td class="text-center">
+                <a class="btn btn-primary" href="{%url 'editor_editar_f' editor.id%}">Editar</a>
+                <a class="btn btn-danger" href="{%url 'editor_eliminar_f' editor.id%}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1> No hay registros de solicitudes </h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

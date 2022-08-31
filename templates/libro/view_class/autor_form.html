@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}{% block content %}
+
+<form method="post">
+  <!-- Tocken de seguridad que provee django -->
+  {% csrf_token %}
+  <!-- Variable para agregar el formulario y pintarlo-->
+
+  <div class="row justify-content-center">
+    <!---->
+    <div class="mb-4 mt-4">
+      <h1>Registra un autor</h1>
+    </div>
+    <div class="mb-4 mt-4">
+      <label class="form-label" for="{{form.nombre.name}}">{{form.nombre.label}}</label>
+      {{form.nombre}}
+    </div>
+    <div class="mb-3 mt-4">
+      <label class="form-label" for="{{form.apellido.name}}">{{form.apellido.label}}</label>
+      {{form.apellido}}
+    </div>
+    <div class="mb-3 mt-4">
+      <label class="form-label" for="{{form.email.name}}">{{form.email.label}}</label>
+      {{form.email}}
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Guardar</button>
+</form>
+
+{% endblock %}

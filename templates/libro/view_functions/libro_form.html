@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+  <!-- Tocken de seguridad que provee django -->
+  {% csrf_token %}
+  <!-- Variable para agregar el formulario y pintarlo-->
+
+  <div class="row justify-content-center">
+    <!---->
+    <div class="mb-4 mt-4">
+      <h1>Registra un libro</h1>
+    </div>
+
+    <div class="mb-3 mt-4">
+      <label class="form-label" for="{{form.portada.name}}"
+        >{{form.portada.label}}</label
+      >
+      <div class="mb-3 mt4">
+        {%if libro.portada%}
+        <img src="{{libro.portada.url}}" width="100%" /> {%endif%}
+      </div>
+      <div class="mb-3 mt4">{{form.portada}}</div>
+    </div>
+
+    <div class="mb-4 mt-4">
+      <label class="form-label" for="{{form.titulo.name}}"
+        >{{form.titulo.label}}</label
+      >
+      <div class="mb-3 mt-4">{{form.titulo}}</div>
+    </div>
+    <div class="mb-3 mt-4 form-check">
+      <label class="form-check-label" for="{{form.autores.name}}"
+        >{{form.autores.label}}</label
+      >
+      {{form.autores}}
+    </div>
+    <div class="mb-3 mt-4">
+      <label class="form-label" for="{{form.editor.name}}"
+        >{{form.editor.label}}</label
+      >
+      {{form.editor}}
+    </div>
+    <div class="mb-3 mt-4">
+      <label class="form-label" for="{{form.fecha_publicacion.name}}"
+        >{{form.fecha_publicacion.label}}</label
+      >
+      {{form.fecha_publicacion}}
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-secondary">Guardar</button>
+</form>
+
+{% endblock %}

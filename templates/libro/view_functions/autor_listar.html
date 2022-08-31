@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="mb-3 mt-4">
+      <h3>Lista de autores</h3>
+    </div>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <td>No. Autor</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Email</td>
+            <td>Acciones</td>
+        </tr>
+    <thead>
+    <tbody>
+
+        {% if autores %}
+
+        {% for autor in autores %}
+        <tr>
+    
+            <td>{{autor.id}}</td>
+            <td>{{autor.nombre}}</td>
+            <td>{{autor.apellido}}</td>
+            <td>{{autor.email}}</td>
+            <td class="text-center">
+                <a class="btn btn-primary" href="{%url 'autor_editar_f' autor.id%}">Editar</a>
+                <a class="btn btn-danger" href="{%url 'autor_eliminar_f' autor.id%}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1> No hay registros de Autores </h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

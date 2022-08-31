@@ -1,0 +1,23 @@
+Hacer CRUD con vistas con clases y con vistas con funciones
+
+clase editorial
+    nombre - char
+    domicilio - char
+    ciudad - char 
+    estado - char
+    pais - char
+    website - url
+
+
+
+clase autor
+    nombre - char
+    apellidos - char 
+    email - email
+
+clase libro
+    titulo - char
+    autores -manytomany
+    editor - foreingkey
+    fecha publicacion - date
+    portada - imagen

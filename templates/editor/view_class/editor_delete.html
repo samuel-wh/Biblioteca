@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %} {% block content %}
+<form method="post">
+  <!-- Tocken de seguridad que provee django -->
+  {% csrf_token %}
+  <!-- Variable para agregar el formulario y pintarlo-->
+  <h3>¿Desea eliminar este editor: {{object.editor.nombre}}?</h3>
+
+  <button class="btn btn-danger" type="submit">Si, eliminar</button>
+  <a class="btn btn-primary" href="{% url 'editor_listar_c' %}"> Cancelar </a>
+</form>
+
+{% endblock %}

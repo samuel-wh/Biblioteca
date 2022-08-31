@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="mb-3 mt-4">
+      <h3>Lista de libros</h3>
+    </div>
+<table class="table table-bordered border-primary">
+    <thead>
+        <tr>
+            <td>No. Libro</td>
+            <td>Portada</td>
+            <td>Titulo</td>
+            <td>Autores</td>
+            <td>Editor</td>
+            <td>Fecha de publicacion</td>
+            <td>Acciones</td>
+        </tr>
+    <thead>
+    <tbody>
+
+        {% if libros %}
+
+        {% for libro in libros %}
+        <tr>
+    
+            <td>{{libro.id}}</td>
+            <td class="w-25 p-3">
+                {%if libro.portada%}
+                <img class="img-thumbnail" src="{{libro.portada.url}}" width="100%" />
+                {%endif%}
+            </td>
+            <td>{{libro.titulo}}</td>
+            <td class="text-center">
+                <a class="btn btn-primary" href="#">Ver autores</a>
+            </td>
+            <td>{{libro.editor}}</td>
+            <td>{{libro.fecha_publicacion}}</td>
+            <td class="text-center">
+                <a class="btn btn-primary" href="{%url 'libro_editar_f' libro.id%}">Editar</a>
+                <a class="btn btn-danger" href="{%url 'libro_eliminar_f' libro.id%}"> Eliminar </a>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <h1> No hay registros de libros </h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<form method="post">
+    <!-- Tocken de seguridad que provee django -->
+    {% csrf_token %}
+    <!-- Variable para agregar el formulario y pintarlo-->
+
+    <div class="row justify-content-center">
+        <!---->
+        <div class="mb-4 mt-4">
+            <h1>Registra un editor</h1>
+        </div>
+        <div class="mb-4 mt-4">
+            <label class="form-label" for="{{form.nombre.name}}">{{form.nombre.label}}</label>
+            {{form.nombre}}
+        </div>
+        <div class="mb-3 mt-4">
+            <label class="form-label" for="{{form.domicilio.name}}">{{form.domicilio.label}}</label>
+            {{form.domicilio}}
+        </div>
+        <div class="mb-3 mt-4">
+            <label class="form-label" for="{{form.ciudad.name}}">{{form.ciudad.label}}</label>
+            {{form.ciudad}}
+        </div>
+        <div class="mb-3 mt-4">
+            <label class="form-label" for="{{form.estado.name}}">{{form.estado.label}}</label>
+            {{form.estado}}
+        </div>
+        <div class="mb-3 mt-4">
+            <label class="form-label" for="{{form.pais.name}}">{{form.pais.label}}</label>
+            {{form.pais}}
+        </div>
+        <div class="mb-3 mt-4">
+            <label class="form-label" for="{{form.website.name}}">{{form.website.label}}</label>
+            {{form.website}}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Guardar</button>
+</form>
+
+{% endblock %}
